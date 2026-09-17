@@ -1,24 +1,37 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>rellah.lol</title>
-<style>
-  body {
-    margin: 0;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #111;
-    color: #eee;
-    font-family: sans-serif;
-    cursor: pointer;
-    user-select: none;
-  }
-</style>
-</head>
-<body onclick="document.querySelector('h1').textContent = 'chump'">
-  <h1>you thought this was going to be another guns lol template huh?</h1>
-</body>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="referrer" content="no-referrer">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+    <meta name="theme-color" content="#030408">
+    <meta name="description" content="A little corner of the internet. Rellah.lol.">
+    <title>Rellah.lol</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <canvas id="space" aria-hidden="true"></canvas>
+    <div class="grain" aria-hidden="true"></div>
+    <main>
+      <div class="composition">
+        <div class="sculpture" aria-hidden="true">
+          <svg class="sculpture-fallback" viewBox="0 0 500 330" fill="none">
+            <defs><linearGradient id="metal" x2=".8" y2="1"><stop stop-color="#b8f1ff"/><stop offset=".45" stop-color="#145982"/><stop offset=".7" stop-color="#68c2df"/><stop offset="1" stop-color="#092d58"/></linearGradient></defs>
+            <path d="M250 73C150 73 115 245 197 248C269 251 330 123 296 104C229 68 110 189 152 226C206 280 370 211 342 159C303 86 185 89 183 142C180 216 318 254 339 203C364 142 292 73 250 73Z" stroke="url(#metal)" stroke-width="35" stroke-linejoin="round"/>
+          </svg>
+          <canvas id="medusa"></canvas>
+        </div>
+        <h1 aria-label="Rellah.lol"><span class="wordmark" aria-hidden="true"><span>R</span><span>e</span><span>l</span><span>l</span><span>a</span><span>h</span><span class="dot">.</span><span>l</span><span>o</span><span>l</span></span></h1>
+        <div class="link-wrap">
+          <a class="destination" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer" aria-label="click me! (opens YouTube in a new tab)">
+            <span class="button-copy"><span>click me!</span><span aria-hidden="true">click me!</span></span>
+            <span class="button-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M6 18 18 6M6 6h12v12" /></svg></span>
+          </a>
+        </div>
+      </div>
+    </main>
+  </body>
 </html>

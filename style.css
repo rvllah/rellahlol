@@ -1,0 +1,113 @@
+@font-face {
+  font-family: "Manrope";
+  src: url("assets/manrope-medium.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: dark;
+  font-family: "Manrope", "Helvetica Neue", Arial, sans-serif;
+  background: #030408;
+  color: #e3e8ee;
+}
+
+* { box-sizing: border-box; }
+body { position: relative; margin: 0; min-width: 280px; }
+a { -webkit-tap-highlight-color: transparent; }
+::selection { background: #dce5ee; color: #030408; }
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 50% 36%, #0c1a2b88 0%, #07101c44 28%, transparent 62%),
+    radial-gradient(ellipse at 88% 88%, #100b1b66, transparent 48%),
+    linear-gradient(155deg, #020306 0%, #050911 48%, #020305 100%);
+}
+#space { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+  opacity: .025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.92' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Cpath fill='%23fff' filter='url(%23n)' opacity='.65' d='M0 0h180v180H0z'/%3E%3C/svg%3E");
+}
+
+main {
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: 80px 24px 95px;
+  overflow: hidden;
+}
+.composition { width: 100%; min-width: 0; text-align: center; }
+.sculpture {
+  position: relative;
+  width: clamp(290px, 40vw, 560px);
+  height: clamp(180px, 32svh, 320px);
+  margin: -30px auto -8px;
+}
+#medusa, .sculpture-fallback { position: absolute; inset: 0; width: 100%; height: 100%; }
+.canvas-ready .sculpture-fallback { display: none; }
+h1 {
+  position: relative;
+  margin: 0;
+  font-size: clamp(60px, min(12.2vw, 18svh), 176px);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -.075em;
+  padding-right: .075em;
+}
+.wordmark { display: inline-flex; }
+.wordmark > span { display: inline-block; transform-origin: 50% 85%; }
+.dot { color: #788697; }
+.link-wrap { display: inline-block; margin-top: 42px; padding: 12px; }
+.destination {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  min-height: 54px;
+  padding: 7px 7px 7px 24px;
+  border: 1px solid #39424e;
+  border-radius: 100px;
+  text-decoration: none;
+  color: #cbd3de;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background .25s, border-color .25s, color .25s;
+  will-change: transform;
+}
+.button-copy { display: block; height: 21px; line-height: 21px; overflow: hidden; text-align: left; }
+.button-copy > span { display: block; transition: transform .4s cubic-bezier(.22, 1, .36, 1); }
+.button-arrow {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #d5dfe9;
+  color: #0a1018;
+  display: grid;
+  place-items: center;
+  transition: transform .4s cubic-bezier(.22, 1, .36, 1);
+}
+.button-arrow svg { width: 16px; height: 16px; stroke: currentColor; stroke-width: 1.5; }
+.destination:hover { background: #141c27; border-color: #778a9f; }
+.destination:hover .button-copy > span { transform: translateY(-100%); }
+.destination:hover .button-arrow { transform: rotate(45deg); }
+.destination:active { background: #1e2a39; }
+:focus-visible { outline: 2px solid #dae5f0; outline-offset: 7px; }
+
+@media (max-width: 600px) {
+  main { min-height: max(560px, 100svh); padding: 80px 18px 90px; }
+  .sculpture { width: 310px; max-width: 100%; height: 240px; margin-top: -35px; margin-bottom: 0; }
+  h1 { font-size: clamp(48px, 13.8vw, 82px); }
+  .link-wrap { margin-top: 32px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
